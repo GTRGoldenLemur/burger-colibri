@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap" rel="stylesheet"> 
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<style type="text/css">
+
+body{
+	padding: 0px;
+	margin: 0px;
+	scroll-behavior: smooth;
+	display: grid;
+	grid-template-rows: repeat(2, 100vh);
+	overflow: hidden;
+}
+
+
+#intro {
+	height: 100vh;
+	width: 100%;
+	background-color: #c0d9c0;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+}
+
+#intro > #introImg{
+	width: min(100%, 700px);
+	height: fit-content;
+	display: grid;
+	justify-items: center;
+}
+
+#intro > img {
+	width: 100%;
+}
+
+
+#intro > #introImg > #introButt{
+	border: solid white 2px;
+	border-radius: 10px;
+	height: 56px;
+	background-color: #2e672e;
+	color: white;
+	width: min(80%, 300px);
+	font-size: 18px;
+	font-family: "Outfit";
+	position: relative;
+	transition: all 0.5s ease-in-out;
+}
+
+#introButt::after{
+	position: absolute;
+	right: 20px;
+	content: "→";
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
+}
+
+#intro > #introImg > #introButt:hover {
+	width: min(85%, 400px);
+	font-size: 22px;
+}
+
+
+#introButt:hover::after{
+	opacity: 1;
+}
+
+#introButt::before {
+	background-image: url("FlowerI.png");
+	background-size: 160% auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100px;
+	width: 120px;
+	content: "";
+	position: absolute;
+	left: -20px;
+	top: -40px;
+	transition: all 0.5s ease-in-out;
+	transform: rotateZ(30deg);
+}
+
+#introButt:hover::before {
+	transform: rotateZ(100deg) scale(1.2);
+	top: -50px;
+}
+
+
+
+#choose1 {
+	display: grid;
+	grid-template-columns: repeat(4, min(100%, 600px));
+	height: 100vh;
+	width: 100vw;
+	background-color: black;
+	overflow-x: scroll;
+	overflow-y: hidden;
+}
+
+
+#b1 {
+	background-color: #a7ca83;
+	color: #083d09;
+}
+
+#choose1 > div {
+	position: relative;
+	overflow: hidden;
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 40% auto auto;
+	height: 100%;
+	opacity: 0.8;
+	transition: all 0.5s ease-in-out;
+}
+
+#choose1 > div:hover {
+	opacity: 1;
+}
+
+#choose1 > div > h1 {
+	color: inherit;
+	text-align: center;
+	width: 100%;
+	font-family: "Outfit";
+	font-size: 44px;
+	z-index: 1;
+	margin: 15px 0px 10px 0px;	
+}
+
+#choose1 > div > p {
+	color: inherit;
+	font-family: "Archivo";
+	width: 60%;
+	z-index: 1;
+}
+
+
+
+#deco1-1{
+	position: absolute;
+	bottom: -120px;
+	left: -50px;
+}
+
+#deco1-2 {
+	position: absolute;
+	top: -50px;
+	right: -150px;	
+}
+
+.burger_img {
+	max-width: 80%;
+	z-index: 1;
+}
+
+
+#com_1 {
+	z-index: 1;
+	color: #083d09;
+	border: solid #083d09 2px;
+	border-radius: 10px;
+	background-color: #a7ca83;
+	width: 40%;
+	transition: all 0.3s ease-in-out;
+	height: 40px;
+	box-shadow: #083d09 5px 5px;
+	font-family: "Outfit";
+}
+
+
+#com_1:hover {
+	box-shadow: #a7ca83 0px 0px;
+	width: 50%;
+	font-size: 18px;
+}
+
+#b2 {
+	background-color: #d49d6c;
+	color: #6a1e1e;
+}
+
+#com_2 {
+	z-index: 1;
+	color: #6a1e1e;
+	border: solid #6a1e1e 2px;
+	border-radius: 10px;
+	background-color: #d49d6c;
+	width: 40%;
+	transition: all 0.3s ease-in-out;
+	height: 40px;
+	box-shadow: #6a1e1e 5px 5px;
+	font-family: "Outfit";
+}
+
+#com_2:hover {
+	box-shadow: #6a1e1e 0px 0px;
+	width: 50%;
+	font-size: 18px;
+}
+
+#deco2-1 {
+	position: absolute;
+	bottom: -40px;
+	left: -30px;
+}
+
+#deco2-2 {
+	position: absolute;
+	top: -10px;
+	right: -20px;
+}
+
+
+#choose1 > div > button {
+	position: relative;
+}
+
+#choose1 > div > button::after {
+	content: "→";
+	color: inherit;
+	opacity: 0;
+	position: absolute;
+	right: 20px;
+	transition: all 0.3s ease-in-out;
+	font-family: "Outfit";
+}
+
+#choose1 > div > button:hover::after {
+	opacity: 1;
+	right: 10px;
+}
+
+
+#b3 {
+	background-color: #75b2cf;
+	color: #173b46;
+}
+
+#com_3 {
+	z-index: 1;
+	color: #173b46;
+	border: solid #173b46 2px;
+	border-radius: 10px;
+	background-color: #75b2cf;
+	width: 40%;
+	transition: all 0.3s ease-in-out;
+	height: 40px;
+	box-shadow: #173b46 5px 5px;
+	font-family: "Outfit";
+}
+
+#com_3:hover {
+	box-shadow: #173b46 0px 0px;
+	width: 50%;
+	font-size: 18px;
+}
+
+#deco3-1 {
+	position: absolute;
+	bottom: -20px;
+	right: -10px;
+}
+
+
+#deco3-2 {
+	position: absolute;
+	top: 50px;
+	left: -10px;
+
+}
+
+
+#b4 {
+	background-color: #e0e094;
+  color: #4c4c15;
+}
+
+
+#com_4 {
+	z-index: 1;
+	color: #4c4c15;
+	border: solid #4c4c15 2px;
+	border-radius: 10px;
+	background-color: #e0e094;
+	width: 40%;
+	transition: all 0.3s ease-in-out;
+	height: 40px;
+	box-shadow: #4c4c15 5px 5px;
+	font-family: "Outfit";
+}
+
+#com_4:hover {
+	box-shadow: #4c4c15 0px 0px;
+	width: 50%;
+	font-size: 18px;
+}
+
+
+#deco4-1 {
+	position: absolute;
+	bottom: -10px;
+	right: -20px;
+}
+
+#deco4-2 {
+	position: absolute;
+	top: -10px;
+	right: -20px;
+}
+
+
+#choose2 {
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	justify-items: center;
+	grid-template-rows: 3fr repeat(2, 2fr);
+}
+
+#c2_b {
+	background-color: #ffffff66;
+	width: 100%;
+	display: grid;
+	justify-items: center;
+	justify-content: center;
+	grid-template-rows: 30% 70%;
+	overflow: hidden;
+	position: relative;
+}
+
+#c2_b_h {
+	color: inherit;
+	font-family: "Outfit";
+	font-size: 44px;
+	z-index: 1;
+	margin: 15px 0px 10px 0px;		
+}
+
+#c2_b_img {
+	z-index: 1;
+}
+
+#c2_b_deco {
+	position: absolute;
+	opacity: 1;
+	top: 10%;
+	left: calc(50% - 340px);
+}
+
+
+#c2_b_rl {
+	position: absolute;
+	bottom: 10%;
+	opacity: 0.8;
+	z-index: 2;
+	transform: rotateZ(0deg);
+	transition: all 0.5s ease-in-out;
+	cursor: pointer;
+}
+
+#c2_b_rl:hover {
+	transform: rotateZ(180deg) scale(1.1);
+}
+
+
+#c2_c {
+	background-color: #ffffff33;
+	display: grid;
+	justify-items: center;
+	width: 100%;
+	grid-template-rows: 50px 1fr;
+}
+
+
+#c2_c > h1{
+	font-size: 24px;
+	font-family: "Outfit";
+	margin-bottom: 0px;
+}
+
+#c2_s {
+	background-color: #ffffff00;
+	width: 100%;
+	display: grid;
+	justify-items: center;
+	justify-content: center;
+/*	grid-template-rows: 30% 70%;*/
+	overflow: hidden;
+	position: relative;
+}
+
+
+#c2_c_table {
+	display: grid;
+  border-radius: 10px;
+  border: solid 2px;
+  width: min(600px, 90%);
+  height: 80%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#c2_c_table > button {
+	color: inherit;
+	background-color: transparent;
+	border: 2px solid;
+	background-size: 300% 100%;
+	font-family: "Archivo";
+	font-size: 18px;
+	transition: all 0.3s ease-in-out;
+	box-shadow: black 0px 0px;
+}
+
+#c2_c_table > button:hover {
+	box-shadow: 10px 10px;
+	font-size: 20px;
+	background-color: #00000044;
+}
+
+#c2_c_bl {
+	background-image: url("Bl.png");
+	background-position: 0% 0%;
+}
+
+#c2_c_sa {
+	background-image: url("Sa.png");
+	background-position: 50% 0%;
+}
+
+#c2_c_ap {
+	background-image: url("Ap.png");
+	background-position: 100% -2%;
+}
+
+.c_sel {
+	background-color: white !important;
+}
+
+
+</style>
+<body id="body">
+
+<div id="intro">
+	<div id="introImg">
+		<img src="II.png" width="100%">
+		<button id="introButt">Commander!</button>
+	</div>
+</div>
+<div id="choose1">
+	<div id="b1" class="b">
+		<h1>Le Burger 1</h1>
+		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </p>
+
+		<button id="com_1" onclick="more_opts(0)">Le commander</button>
+
+
+		<img id="deco1-1" src="III.png" width="120%">
+		<img id="deco1-2" src="IV.png" width="80%">
+	</div>
+
+
+	<div id="b2" class="b">
+		<h1>Le Burger 2</h1>
+		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </p>
+
+		<button id="com_2" onclick="more_opts(1)">Le commander</button>
+
+
+		<img id="deco2-1" src="V.png" width="80%">
+		<img id="deco2-2" src="VI.png" width="80%">
+	</div>
+
+
+	<div id="b3" class="b">
+		<h1>Le Burger 3</h1>
+		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </p>
+
+		<button id="com_3" onclick="more_opts(2)">Le commander</button>
+
+
+		<img id="deco3-1" src="IX.png" width="100%">
+		<img id="deco3-2" src="VIII.png" width="80%">
+	</div>
+
+
+	<div id="b4" class="b">
+		<h1>Le Burger 4</h1>
+		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </p>
+
+		<button id="com_4" onclick="more_opts(3)">Le commander</button>
+
+
+		<img id="deco4-1" src="IX.png" width="70%">
+		<img id="deco4-2" src="X.png" width="70%">
+	</div>
+
+</div>
+
+<div id="choose2">
+	<div id="c2_b">
+		<h1 id="c2_b_h"></h1>
+		<img src="XI.png" id="c2_b_deco" height="100%">
+		<img id="c2_b_img" src="" height="100%">
+		<img id="c2_b_rl" src="https://cdn.onlinewebfonts.com/svg/img_572382.png" height="50%" onclick="change_burger()">
+	</div>
+
+	<div id="c2_c">
+		<h1>Choissisez votre cuisson:</h1>
+
+		<div id="c2_c_table">
+			<button id="c2_c_bl" onclick="cuisson(0)">Bleu</button>
+			<button id="c2_c_sa" onclick="cuisson(1)">Saignant</button>
+			<button id="c2_c_ap" onclick="cuisson(2)">À point</button>
+		</div>
+
+
+	</div>
+
+	<div id="c2_s">
+		
+	</div>
+
+</div>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+		
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAYXbG-p9-z9BXngOemE45zl6jebWdsAB8",
+
+  authDomain: "https://burger-colibri-default-rtdb.europe-west1.firebasedatabase.app/",
+
+  projectId: "burger-colibri",
+
+  storageBucket: "burger-colibri.appspot.com",
+
+  messagingSenderId: "571443619918",
+
+  appId: "1:571443619918:web:d2d0b05d423b88afb2fb1f",
+
+  databaseURL: "https://burger-colibri-default-rtdb.europe-west1.firebasedatabase.app/"
+
+};
+
+
+var order_b = document.getElementById("introButt")
+var choose1 = document.getElementById("choose1")
+var choose2 = document.getElementById("choose2")
+var intro = document.getElementById("intro")
+var b1 = document.getElementById("b1")
+var b2 = document.getElementById("b2")
+var b3 = document.getElementById("b3")
+var b4 = document.getElementById("b4")
+
+
+var com1 = document.getElementById("com_1")
+var com2 = document.getElementById("com_2")
+var com3 = document.getElementById("com_3")
+var com4 = document.getElementById("com_4")
+
+var c1 = document.getElementById("c2_c_bl")
+var c2 = document.getElementById("c2_c_sa")
+var c3 = document.getElementById("c2_c_ap")
+
+var choice = {"burger": "", "cuisson": "", "sauce": "", "boisson": "", "nom": ""}
+
+
+intro.scrollIntoView({behavior: "smooth"})
+
+order_b.onclick = ()=>{
+	choose1.scrollIntoView({behavior: "smooth"})
+	console.log(choose1)
+}
+
+choose1.onscrollend = ((event)=>{
+
+	setTimeout(function() {
+
+		bs = [b1, b2, b3, b4]
+
+	  closest = b1
+
+	  for (var x = 0; x<bs.length;x++) {
+	  	if (Math.abs(closest.getBoundingClientRect().left) > Math.abs(bs[x].getBoundingClientRect().left)) {
+	  		closest=bs[x]
+	  	}
+	  }
+
+	  if (choice.burger == "") {
+	  	closest.scrollIntoView({behavior:"smooth", inline: "start"})
+	  }
+
+	}, 200);
+})
+
+
+
+com_bs = [[com1, b1], [com2, b2], [com3, b3], [com4, b4]]
+b_name = ["Burger 1", "Burger 2", "Burger 3", "Burger 4"]
+b_image = ["https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png", "https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png", "https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png", "https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png"]
+b_color = ["#a7ca83", "#d49d6c", "#75b2cf", "#e0e094"]
+b_tcolor = ["#083d09", "#6a1e1e", "#173b46", "#4c4c15"]
+
+
+function more_opts(n) {
+
+	choice.burger = b_name[n]
+
+	com_bs[n][1].scrollIntoView({behavior:"smooth", inline: "center"})
+	choose2.style.backgroundColor = b_color[n]
+	choose2.style.color = b_tcolor[n]
+
+
+	document.getElementById("c2_b_h").innerText = choice.burger
+	document.getElementById("c2_b_img").src = b_image[n]
+
+	setTimeout(function() {
+		choose2.scrollIntoView({behavior: "smooth", block: "start"})
+	}, 300);
+}	
+
+
+function change_burger() {
+	choice.burger = ""
+	choose1.scrollIntoView({behavior: "smooth"})
+}
+
+
+function cuisson(n){
+	choice.burger = ["Bleu", "Saignant", "A point"][n]
+
+	for (var i = 0; i < [c1, c2, c3].length; i++) {
+		[c1, c2, c3][i].classList.remove("c_sel")
+	}
+
+	[c1, c2, c3][n].classList.add("c_sel")
+
+}
+
+
+// const app = firebase.initializeApp(firebaseConfig);
+
+// const db = firebase.database();
+
+// var dbRef = firebase.database().ref().child('commandes');
+
+// function actualizer_commandes() {
+// 	dbRef.on("value", (snapshot) => {
+// 		console.log(snapshot.val())
+// 	})
+// }
+
+// actualizer_commandes()
+
+
+
+
+
+
+</script>
+</body>
+</html>
