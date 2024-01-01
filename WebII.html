@@ -936,13 +936,13 @@ order_b.onclick = ()=>{
 	choose1.scrollIntoView({behavior: "smooth"})
 }
 
-choose1.onscrollend = ()=>{b_auto_scroll()}
-s_cont.onscrollend = ()=>{s_auto_scroll()}
-
 if(detectMob()) {
 	choose1.onscroll = ()=>{setTimeout(function() {b_auto_scroll()}, 1000);}
 	s_cont.onscroll = ()=>{setTimeout(function() {s_auto_scroll()}, 500);}
-
+}
+else {
+	choose1.onscrollend = ()=>{b_auto_scroll()}
+	s_cont.onscrollend = ()=>{s_auto_scroll()}
 }
 
 function b_auto_scroll() {
