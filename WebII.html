@@ -863,9 +863,9 @@ const firebaseConfig = {
 
 };
 
-if (detectMob()){
-	alert("You are on a mobile")
-}
+// if (detectMob()){
+// 	alert("You are on a mobile")
+// }
 
 	
 var order_b = document.getElementById("introButt")
@@ -940,7 +940,7 @@ choose1.onscrollend = ()=>{b_auto_scroll()}
 s_cont.onscrollend = ()=>{s_auto_scroll()}
 
 if(detectMob()) {
-	choose1.onscroll = ()=>{b_auto_scroll()}
+	choose1.onscroll = ()=>{b_auto_scroll();alert("scrollend")}
 	s_cont.onscroll = ()=>{s_auto_scroll()}
 
 }
