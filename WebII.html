@@ -765,7 +765,7 @@ body{
 
 </div>
 
-<div id="choose2">
+<div id="choose2" style="display: none;">
 	<div id="c2_b">
 		<h1 id="c2_b_h"></h1>
 		<img src="XI.png" id="c2_b_deco" height="100%">
@@ -827,7 +827,7 @@ body{
 
 </div>
 
-<div id="choose3">
+<div id="choose3" style="display: none;">
 	<div>
 		<img src="II.png" width="100%">
 		<h1 id="c3_t1">Vous avez pris un XXXX YYYYY avec de ZZZZ</h1>
@@ -894,19 +894,51 @@ var to_choice3 = document.getElementById("next")
 
 var c3_t1 = document.getElementById("c3_t1")
 
+choose1.style = ""
+choose2.style = ""
+
+
 
 var choice = {"burger": "", "cuisson": "", "boisson": "", "nom": ""}
 
 
-intro.scrollIntoView({behavior: "smooth"})
+function detectMob() {
+  const toMatch = [
+      /Android/i,
+      /webOS/i,
+      /iPhone/i,
+      /iPad/i,
+      /iPod/i,
+      /BlackBerry/i,
+      /Windows Phone/i
+  ];
+  
+  return toMatch.some((toMatchItem) => {
+      return navigator.userAgent.match(toMatchItem);
+  });
+}
+
+
+
+window.parent.scrollTo({top:0, behavior: "smooth"})
+
+//intro.scrollIntoView({behavior: "smooth"})
 
 order_b.onclick = ()=>{
 	choose1.scrollIntoView({behavior: "smooth"})
 	console.log(choose1)
 }
 
-choose1.onscrollend = ((event)=>{
+choose1.onscrollend = ()=>{b_auto_scroll()}
+s_cont.onscrollend = ()=>{s_auto_scroll()}
 
+if(detectMob()) {
+	choose1.onscroll = ()=>{b_auto_scroll()}
+	s_cont.onscroll = ()=>{s_auto_scroll()}
+
+}
+
+function b_auto_scroll() {
 	setTimeout(function() {
 
 		bs = [b1, b2, b3, b4]
@@ -924,8 +956,7 @@ choose1.onscrollend = ((event)=>{
 	  }
 
 	}, 200);
-})
-
+}
 
 
 com_bs = [[com1, b1], [com2, b2], [com3, b3], [com4, b4]]
@@ -971,9 +1002,8 @@ function cuisson(n){
 }
 
 
-s_cont.onscrollend = ((event)=>{
 
-
+function s_auto_scroll() {
 	setTimeout(function() {
 
 		ss = [s1, s2, s3, s4]
@@ -994,7 +1024,7 @@ s_cont.onscrollend = ((event)=>{
   	}
 
 	}, 200);
-})
+}
 
 
 function select_boisson(n){
@@ -1111,7 +1141,6 @@ function getLowerIndex(action) {
 </script>
 </body>
 </html>
-
 
 
 
