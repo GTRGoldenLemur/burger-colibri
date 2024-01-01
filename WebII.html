@@ -922,7 +922,7 @@ function detectMob() {
   
   return toMatch.some((toMatchItem) => {
       return navigator.userAgent.match(toMatchItem);
-  });
+  }) || (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
 }
 
 
