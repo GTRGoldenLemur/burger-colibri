@@ -120,7 +120,7 @@ body{
 	display: grid;
 	justify-items: center;
 	grid-template-columns: 1fr;
-	grid-template-rows: auto 40% auto auto;
+	grid-template-rows: 60px 35vh auto auto auto;
 	height: 100%;
 	opacity: 0.8;
 	transition: all 0.5s ease-in-out;
@@ -327,7 +327,8 @@ body{
 	height: 100vh;
 	display: grid;
 	justify-items: center;
-	grid-template-rows: 3fr repeat(2, 2fr);
+	grid-template-rows: 1fr 1fr 1fr 80px;
+	overflow: scroll;
 }
 
 #c2_b {
@@ -391,16 +392,6 @@ body{
 	margin-bottom: 0px;
 }
 
-#c2_s {
-	background-color: #ffffff00;
-	width: 100%;
-	display: grid;
-	justify-items: center;
-	justify-content: center;
-/*	grid-template-rows: 30% 70%;*/
-	overflow: hidden;
-	position: relative;
-}
 
 
 #c2_c_table {
@@ -447,6 +438,264 @@ body{
 .c_sel {
 	background-color: white !important;
 }
+
+#c2_s {
+	background-color: #ffffff00;
+	width: 100%;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	grid-template-rows: 60px 18vh 1fr;
+	position: relative;
+}
+
+
+#c2_s > h1{
+	font-size: 24px;
+	font-family: "Outfit";
+	margin: 0px;
+}
+
+#c2_s_cont {
+	border-radius: 10px;
+	border: solid 2px;
+	height: 100%;
+	padding: 10px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	width: min(80%, 700px);
+	display: flex;
+	position: relative;
+	z-index: 1;
+/*	grid-template-rows: 1fr;
+	grid-template-columns: repeat(5, 40%);*/
+}
+
+#c2_s_cont > div {
+	min-width: 240px;
+	height: 100%;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	display: block;
+	position: relative;
+	transition: 0.3s ease-in-out all;
+}
+
+
+
+#c2_s_cont > div > button {
+	width: 80%;
+	height: 80%;
+	border: none;
+	background-color: transparent;
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+/*	padding-top: 80%;*/
+	font-family: "Outfit";
+}
+
+
+#c2_s_eau {
+	background-image: url("XII.png");
+}
+
+#c2_s_eau > button {
+	background-image: url("https://pluspng.com/img-png/water-glass-hd-png-water-glass-png-clipart-1797.png");
+}
+
+#c2_s_bie {
+	background-image: url("XIII.png");
+}
+
+#c2_s_bie > button {
+	background-image: url("https://pngimg.com/uploads/beer/beer_PNG2374.png");
+}
+
+#c2_s_gin {
+	background-image: url("XIV.png");
+}
+
+#c2_s_gin > button {
+	background-image: url("https://cdn.shoplightspeed.com/shops/628747/files/31403681/old-jamaica-old-jamaica-ginger-beer-330ml.jpg");
+}
+
+
+#c2_s_jus {
+	background-image: url("XV.png");
+}
+
+#c2_s_jus > button {
+	background-image: url("https://cdn.pixabay.com/photo/2020/04/11/12/12/glass-5030209_1280.png");
+}
+
+#selector {
+	height: 16vh;
+	width: 240px;
+	position: absolute;
+	border: solid 2px;
+	border-radius: 10px;
+	left: calc(50% - 120px);
+	top: 65px;
+	background-color: #ffffff55;
+
+}
+
+.space {
+	width: 60%;
+}
+
+
+#next {
+	width: min(300px, 60%);
+	height: 50px;
+	font-family: "Archivo";
+	font-size: 24px;
+	border-radius: 10px;
+	border: solid 2px;
+	background-color: white;
+	box-shadow: 8px 8px;
+	position: relative;
+	transition: all 0.3s ease-in-out;
+}
+
+
+#next:enabled:hover {
+	box-shadow: 0px 0px;
+/*	width: min(700px, 70%);*/
+	margin-left: 30px;
+	font-size: 28px;
+}
+
+#next::after {
+	content: "→";
+	position: absolute;
+	transition: 0.3s all ease-in-out;
+	font-size: 21px;
+	right: 50px;
+	opacity: 0;
+}
+
+#next:enabled:hover::after {
+	right: 30px;
+	opacity: 1;
+	font-size: 28px;
+
+}
+
+#next:disabled {
+	background-color: #d3d1d1 !important;
+	cursor: not-allowed !important;
+}
+
+
+#choose3 {
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	background-color: #c0d9c0;
+	justify-items: center;
+}
+
+#choose3 > div {
+	width: min(80%, 800px);
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	grid-template-rows: 3fr 80px 60px 100px 1fr;
+}
+
+
+#choose3 > div> h1 {
+	text-align: center;
+	font-family: "Outfit";
+	font-size: 24px;
+	color: #2e672e;
+	width: 100%;
+}
+
+#choose3 > div > input {
+	background-color: white;
+	border: solid #2e672e 2px;
+	border-bottom-width: 5px;
+	width: 50%;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+	font-size: 18px;
+	outline: none;
+	transition: all 0.4s ease-in-out;
+	opacity: 0.8;
+}
+
+#choose3 > div > input:focus {
+	width: 60%;
+	opacity: 1;
+}
+
+#choose3 > div > input:hover {
+	opacity: 1;
+}
+
+
+#choose3 > div > button {
+	border: solid white 2px;
+	border-radius: 10px;
+	height: 56px;
+	background-color: #2e672e;
+	color: white;
+	width: min(80%, 300px);
+	font-size: 18px;
+	font-family: "Outfit";
+	position: relative;
+	margin-top: 10px;
+	transition: all 0.5s ease-in-out;
+}
+
+
+#choose3 > div > button::after {
+	position: absolute;
+	right: 20px;
+	content: "→";
+	font-size: 24px;
+	font-weight: bold;
+	color: white;
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
+}
+
+
+#choose3 > div > button:hover {
+	width: min(85%, 400px);
+	font-size: 22px;
+}
+
+#choose3 > div > button:hover::after {
+	opacity: 1;
+}
+
+#choose3 > div > button::before {
+	background-image: url("FlowerI.png");
+	background-size: 160% auto;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100px;
+	width: 120px;
+	content: "";
+	position: absolute;
+	left: -20px;
+	top: -40px;
+	transition: all 0.5s ease-in-out;
+	transform: rotateZ(30deg);
+}
+
+#choose3 > div > button:hover::before {
+	transform: rotateZ(100deg) scale(1.2);
+	top: -50px;
+}
+
+
+
 
 
 </style>
@@ -525,7 +774,7 @@ body{
 	</div>
 
 	<div id="c2_c">
-		<h1>Choissisez votre cuisson:</h1>
+		<h1>Choisissez votre cuisson:</h1>
 
 		<div id="c2_c_table">
 			<button id="c2_c_bl" onclick="cuisson(0)">Bleu</button>
@@ -537,12 +786,55 @@ body{
 	</div>
 
 	<div id="c2_s">
-		
+		<h1>Choisissez votre boisson: </h1>
+
+		<div id="c2_s_cont">
+
+			<div class="space"></div>
+
+			<div id="c2_s_eau">
+				<button onclick="select_boisson(0)">
+					Eau
+				</button>
+			</div>
+
+			<div id="c2_s_bie">
+				<button onclick="select_boisson(1)">
+					Bière
+				</button>
+			</div>
+
+			<div id="c2_s_gin">
+				<button onclick="select_boisson(2)">
+				</button>
+			</div>
+
+			<div id="c2_s_jus">
+				<button onclick="select_boisson(3)">
+					Jus
+				</button>
+			</div>
+
+			<div class="space"></div>
+
+		</div>
+
+		<div id="selector"></div>
+
 	</div>
+
+	<button disabled id="next" onclick="move_to_choice3()">Suivant</button>
 
 </div>
 
-
+<div id="choose3">
+	<div>
+		<img src="II.png" width="100%">
+		<h1 id="c3_t1">Vous avez pris un XXXX YYYYY avec de ZZZZ</h1>
+		<input id="name_inp" placeholder="Votre nom...">
+		<button id="send" onclick="send()">Commander!</button>
+	</div>
+</div>
 
 <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -572,6 +864,8 @@ const firebaseConfig = {
 var order_b = document.getElementById("introButt")
 var choose1 = document.getElementById("choose1")
 var choose2 = document.getElementById("choose2")
+var choose3 = document.getElementById("choose3")
+var s_cont = document.getElementById("c2_s_cont")
 var intro = document.getElementById("intro")
 var b1 = document.getElementById("b1")
 var b2 = document.getElementById("b2")
@@ -588,7 +882,20 @@ var c1 = document.getElementById("c2_c_bl")
 var c2 = document.getElementById("c2_c_sa")
 var c3 = document.getElementById("c2_c_ap")
 
-var choice = {"burger": "", "cuisson": "", "sauce": "", "boisson": "", "nom": ""}
+var s1 = document.getElementById("c2_s_eau")
+var s2 = document.getElementById("c2_s_bie")
+var s3 = document.getElementById("c2_s_gin")
+var s4 = document.getElementById("c2_s_jus")
+var selector = document.getElementById("selector")
+
+var name_inp = document.getElementById("name_inp")
+
+var to_choice3 = document.getElementById("next")
+
+var c3_t1 = document.getElementById("c3_t1")
+
+
+var choice = {"burger": "", "cuisson": "", "boisson": "", "nom": ""}
 
 
 intro.scrollIntoView({behavior: "smooth"})
@@ -653,7 +960,7 @@ function change_burger() {
 
 
 function cuisson(n){
-	choice.burger = ["Bleu", "Saignant", "A point"][n]
+	choice.cuisson = ["Bleu", "Saignant", "A point"][n]
 
 	for (var i = 0; i < [c1, c2, c3].length; i++) {
 		[c1, c2, c3][i].classList.remove("c_sel")
@@ -664,11 +971,66 @@ function cuisson(n){
 }
 
 
-// const app = firebase.initializeApp(firebaseConfig);
+s_cont.onscrollend = ((event)=>{
 
-// const db = firebase.database();
 
-// var dbRef = firebase.database().ref().child('commandes');
+	setTimeout(function() {
+
+		ss = [s1, s2, s3, s4]
+
+	  closest = s1
+
+	  d = selector.getBoundingClientRect().left
+
+	  for (var x = 0; x<ss.length;x++) {
+	  	if (Math.abs(closest.getBoundingClientRect().left - d) > Math.abs(ss[x].getBoundingClientRect().left - d)) {
+	  		closest=ss[x]
+	  	}
+	  }
+
+	  if (choose3.style.display != "grid"){
+  		closest.scrollIntoView({behavior:"smooth", inline: "center"})
+  		choice.boisson = ["Eau", "Bière", "Ginger Beer", "Jus"][ss.indexOf(closest)]
+  	}
+
+	}, 200);
+})
+
+
+function select_boisson(n){
+	console.log(n)
+	ss = [s1, s2, s3, s4]
+	ss[n].scrollIntoView({behavior: "smooth", inline: "center"})
+	choice.boisson = ["Eau", "Bière", "Ginger Beer", "Jus"][n]
+}
+
+
+check_fulfilled = setInterval(()=>{
+
+	if (choice.burger != "" && choice.cuisson != "" && choice.boisson != "") {
+		to_choice3.disabled = false
+	}
+	else {
+		to_choice3.disabled = true
+	}
+
+}, 200)
+
+
+function move_to_choice3() {
+	c3_t1.innerText = "Vous avez pris un "+choice.burger+" "+choice.cuisson.toLowerCase()+" avec "+{"Eau": "de l'eau", "Bière":"de la bière", "Ginger Beer": "de la Ginger Beer", "Jus": "du jus"}[choice.boisson]
+	console.log(choose3)
+	choose3.style.display = "grid"
+	choose3.scrollIntoView({behavior: "smooth"})
+}
+
+
+
+const app = firebase.initializeApp(firebaseConfig);
+
+const db = firebase.database();
+
+var dbRef = firebase.database().ref().child('commandes');
 
 // function actualizer_commandes() {
 // 	dbRef.on("value", (snapshot) => {
@@ -678,9 +1040,33 @@ function cuisson(n){
 
 // actualizer_commandes()
 
+function send() {
+
+	choice.nom = name_inp.value
+
+	getCommandesLength((l)=>{
+		db.ref("commandes/"+String(l)).set(choice)
+	})
 
 
 
+}
+
+
+function getCommandesLength(action) {
+
+	var l = 0 
+
+	db.ref("commandes").get().then((snap)=>{
+		if (snap.exists()){
+			l = snap.val().length
+		}
+		else {
+			l = 0
+		}
+		action(l)
+	})
+}
 
 
 </script>
