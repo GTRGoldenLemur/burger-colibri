@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Commandes | Burger du Colibri</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap" rel="stylesheet"> 
+</head>
+
+<style type="text/css">
+
+table {
+	width: 80vh;
+	border-collapse: collapse;
+	border: 2px solid black;
+  text-align: center;
+}
+
+tr > * {
+	border: 1px solid black;
+}
+
+th {
+	border: 2px solid black;
+}
+
+table > tbody > tr:first-child > th {
+	background-color: lightgrey;
+}
+
+</style>
+
+<body>
+
+<table id="commandes">
+	<caption>Commandes:</caption>
+	<tr>
+		<th>Nom</th>
+		<th>Burger</th>
+		<th>Cuisson</th>
+		<th>Boisson</th>
+		<th>Supprimer</th>
+	</tr>
+</table>
+
+<table>
+	<caption>Burgers:</caption>
+	<tbody id="burgers">
+		<tr>
+			<th>Burger</th>
+			<th>Total</th>
+			<th>Bleu</th>
+			<th>Saignant</th>
+			<th>Á point</th>
+		</tr>
+	</tbody>
+</table>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyAYXbG-p9-z9BXngOemE45zl6jebWdsAB8",
+
+  authDomain: "https://burger-colibri-default-rtdb.europe-west1.firebasedatabase.app/",
+
+  projectId: "burger-colibri",
+
+  storageBucket: "burger-colibri.appspot.com",
+
+  messagingSenderId: "571443619918",
+
+  appId: "1:571443619918:web:d2d0b05d423b88afb2fb1f",
+
+  databaseURL: "https://burger-colibri-default-rtdb.europe-west1.firebasedatabase.app/"
+
+};
+
+const app = firebase.initializeApp(firebaseConfig);
+
+const db = firebase.database();
+
+var dbRef = firebase.database().ref().child('commandes');
+
+function update_table1(data) {
+	html = "<caption>Commandes:</caption><tbody><tr><th>Nom</th><th>Burger</th><th>Cuisson</th><th>Boisson</th><th>Supprimer</th></tr>"
+	if (data == null || data == undefined) {
+		document.getElementById("commandes").innerHTML = html+"</tbody>"
+		return
+	}
+
+
+
+	for (var i = 0; i < data.length; i++) {
+
+		console.log(parseInt(Object.keys(data)[i]))
+
+		console.log(data)
+
+		console.log(data[ parseInt(Object.keys(data)[i]) ])
+
+		var d = data[ parseInt(Object.keys(data)[i]) ]
+
+		if (d != undefined) {
+			html += "<tr><th>"+d.nom+"</th><td>"+d.burger+"</td><td>"+d.cuisson+"</td><td>"+d.boisson+"</td><td><button onclick='supprimer("+Object.keys(data)[i]+")'>Supr</button></td></tr>"
+		}
+	}
+
+	document.getElementById("commandes").innerHTML = html+"</tbody>"
+}
+
+var test_d = [{nom: "Guilhem", burger: "Burger 1", cuisson: "Bleu", boisson: "4"}, {nom: "Guilhem", burger: "Burger 3", cuisson: "Saignant", boisson: "3"}, {nom: "Lilian", burger: "Burger 1", cuisson: "Bleu", boisson: "2"}]
+
+
+db.ref("commandes").on("value", (snap) => {
+
+	update_table1(snap.val())
+	// console.log(snap.val())
+	update_table2(snap.val())
+
+})
+
+var burgers = ["Burger 1", "Burger 2", "Burger 3", "Burger 4"]
+var cuissons = ["Bleu", "Saignant", "A point"]
+
+
+function update_table2(data) {
+	html = "<tr><th>Burger</th><th>Total</th><th>Bleu</th><th>Saignant</th><th>Á point</th></tr>"
+
+	if (data == null || data == undefined) {
+		document.getElementById("burgers").innerHTML = html
+		return
+	}
+
+	var bs = {}
+	bs[burgers[0]] = [0, 0, 0]
+	bs[burgers[1]] = [0, 0, 0]
+	bs[burgers[2]] = [0, 0, 0]
+	bs[burgers[3]] = [0, 0, 0]
+
+
+	for (var i = 0; i < data.length; i++) {
+		var d = data[ Object.keys(data)[i] ]
+
+		if (d != undefined) {
+			bs[d.burger][cuissons.indexOf(d.cuisson)] += 1
+		}
+
+	}
+
+
+
+	for (var i = 0; i < Object.keys(bs).length; i++) {
+
+		var d = bs[burgers[i]]
+
+		html += "<tr><th>"+burgers[i]+"</th><td>"+String(d[0]+d[1]+d[2])+"</td><td>"+String(d[0])+"</td><td>"+String(d[1])+"</td><td>"+String(d[2])+"</td></tr>"
+	}
+
+	document.getElementById("burgers").innerHTML = html
+
+}
+
+function supprimer(n) {
+	db.ref("commandes/"+String(n)).remove()
+}
+
+// update_table2(test_d)
+
+</script>
+</html>
