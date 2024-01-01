@@ -7,7 +7,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap" rel="stylesheet"> 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Burger du Colibri</title>
 </head>
 <style type="text/css">
 
@@ -1044,7 +1044,8 @@ function send() {
 
 	choice.nom = name_inp.value
 
-	getCommandesLength((l)=>{
+	getLowerIndex((l)=>{
+		console.log(l)
 		db.ref("commandes/"+String(l)).set(choice)
 	})
 
@@ -1069,6 +1070,45 @@ function getCommandesLength(action) {
 }
 
 
+function getLowerIndex(action) {
+
+	var l = 0 
+
+	db.ref("commandes").get().then((snap)=>{
+
+		if (snap.exists()){
+			//console.log(Object.keys(snap.val()))
+
+			for (var i = 0; l == 0; i++) {
+
+				//console.log(snap.val()[i])
+
+				if (snap.val()[i] == undefined) {
+					l = 1
+					action(i)
+
+					return l
+				}
+			}
+
+		}
+		else {
+			l = 0
+		}
+
+		action(l)
+		return l
+	})
+}
+
+
+
+// getLowerIndex((x)=>{
+// 	console.log(x)
+// })
+
+
 </script>
 </body>
 </html>
+
