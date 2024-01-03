@@ -697,7 +697,20 @@ body{
 	top: -50px;
 }
 
-
+#sent {
+	position: absolute;
+	width: min(600px, 80%);
+	top: 40vh;
+	left: calc(50% - min(300px, 40%));
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out, top 3s ease-in-out;
+	display: none;
+	background-color: white;
+	border: black solid 1px;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: black 10px 10px;
+}
 
 
 
@@ -712,12 +725,12 @@ body{
 </div>
 <div id="choose1" style= "display: none;">
 	<div id="b1" class="b">
-		<h1>Le Burger 1</h1>
+		<h1>Le yassa</h1>
 		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </p>
+		<p>Un burger africain, suivant la recette populaire du "Poulet yassa", adapté en burger. Avec son filet de poulet, sa sauce oignon "yassa", du cheddar fondu, des cornichon, de la salade et des tomates.</p>
 
-		<button id="com_1" onclick="more_opts(0)">Le commander</button>
+		<button id="com_1" onclick="more_opts(0)">Le choisir!</button>
 
 
 		<img id="deco1-1" src="III.png" width="120%">
@@ -726,12 +739,12 @@ body{
 
 
 	<div id="b2" class="b">
-		<h1>Le Burger 2</h1>
+		<h1>Le Mafé</h1>
 		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </p>
+		<p>Un autre burger d'influence africaine, avec son steak de bœuf, sa sauce arachide "Mafé", typique en Afrique, du cheddar fondu, de la salade et des tomates.</p>
 
-		<button id="com_2" onclick="more_opts(1)">Le commander</button>
+		<button id="com_2" onclick="more_opts(1)">Le choisir!</button>
 
 
 		<img id="deco2-1" src="V.png" width="80%">
@@ -740,12 +753,12 @@ body{
 
 
 	<div id="b3" class="b">
-		<h1>Le Burger 3</h1>
+		<h1>Le Boudin Créole</h1>
 		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </p>
+		<p>Un burger célebrant la culture créole antillaise, au croisement entre la française, africaine et américaine. Avec son boudin créole (épicé), ses délicieux oignons rouges, ses cornichons, sa sauce au poivre, de la salade et des tomates. </p>
 
-		<button id="com_3" onclick="more_opts(2)">Le commander</button>
+		<button id="com_3" onclick="more_opts(2)">Le choisir!</button>
 
 
 		<img id="deco3-1" src="IX.png" width="100%">
@@ -754,12 +767,12 @@ body{
 
 
 	<div id="b4" class="b">
-		<h1>Le Burger 4</h1>
+		<h1>Le Colibri</h1>
 		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </p>
+		<p>Specialité de la maison, c'est un burger d'influence martiniquaise. Au steak de bœuf, avec du gouda fondant, de l'avocat, des petits piments végétariens, ses cornichons, sa sauce au poivre, des oignons rouges, de la salade et des tomates.</p>
 
-		<button id="com_4" onclick="more_opts(3)">Le commander</button>
+		<button id="com_4" onclick="more_opts(3)">Le choisir!</button>
 
 
 		<img id="deco4-1" src="IX.png" width="70%">
@@ -838,6 +851,11 @@ body{
 		<button id="send" onclick="send()">Commander!</button>
 	</div>
 </div>
+
+<div id="sent">
+	<img src="XVII.png" width="100%">
+</div>
+
 
 <script src="https://www.gstatic.com/firebasejs/8.2.3/firebase.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -1115,6 +1133,7 @@ function send() {
 
 			cuisson()
 
+			notificate()
 
 			console.log("Start Again")
 
@@ -1175,6 +1194,23 @@ function getLowerIndex(action) {
 	})
 }
 
+var notif = document.getElementById("sent")
+
+function notificate() {
+	sent.style.display = "block"
+	console.log("hello")
+	setTimeout(function() {
+		sent.style.opacity = "1"
+		sent.style.top = "10vh"
+		setTimeout(function() {
+			sent.style.opacity = "0"
+			setTimeout(function(){
+				sent.style.display = "none"
+			}, 600)
+		}, 2500);
+
+	}, 100);
+}
 
 
 // getLowerIndex((x)=>{
