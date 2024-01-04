@@ -13,7 +13,7 @@
 <style type="text/css">
 
 table {
-	width: 80vh;
+	width: 80vw;
 	border-collapse: collapse;
 	border: 2px solid black;
   text-align: center;
@@ -92,6 +92,7 @@ var dbRef = firebase.database().ref().child('commandes');
 
 function update_table1(data) {
 	html = "<caption>Commandes:</caption><tbody><tr><th>Nom</th><th>Burger</th><th>Cuisson</th><th>Boisson</th><th>Supprimer</th></tr>"
+
 	if (data == null || data == undefined) {
 		document.getElementById("commandes").innerHTML = html+"</tbody>"
 		return
@@ -99,13 +100,13 @@ function update_table1(data) {
 
 
 
-	for (var i = 0; i < data.length; i++) {
+	for (var i = 0; i < Object.keys(data).length; i++) {
 
-		console.log(parseInt(Object.keys(data)[i]))
+		// console.log(parseInt(Object.keys(data)[i]))
 
-		console.log(data)
+		// console.log(data)
 
-		console.log(data[ parseInt(Object.keys(data)[i]) ])
+		// console.log(data[ parseInt(Object.keys(data)[i]) ])
 
 		var d = data[ parseInt(Object.keys(data)[i]) ]
 
@@ -128,7 +129,7 @@ db.ref("commandes").on("value", (snap) => {
 
 })
 
-var burgers = ["Burger 1", "Burger 2", "Burger 3", "Burger 4"]
+var burgers = ["Le Yassa", "Le Mafé", "Tata-Boudin Créole", "Colibri"]
 var cuissons = ["Bleu", "Saignant", "A point"]
 
 
@@ -147,7 +148,7 @@ function update_table2(data) {
 	bs[burgers[3]] = [0, 0, 0]
 
 
-	for (var i = 0; i < data.length; i++) {
+	for (var i = 0; i < Object.keys(data).length; i++) {
 		var d = data[ Object.keys(data)[i] ]
 
 		if (d != undefined) {
