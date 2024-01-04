@@ -532,6 +532,24 @@ body{
 	background-image: url("https://cdn.pixabay.com/photo/2020/04/11/12/12/glass-5030209_1280.png");
 }
 
+#c2_s_tip {
+	background-image: url("XVI.png");
+}
+
+#c2_s_tip > button {
+	background-image: url("https://www.saq.com/media/catalog/product/t/i/ti-punch-ec-1_1610405427.png?quality=80&fit=bounds&height=&width=");
+}
+
+#c2_s_mar {
+	background-image: url("XVIII.png");
+}
+
+#c2_s_mar > button {
+	background-image: url("https://www.pngplay.com/wp-content/uploads/13/Mojito-PNG-Photo-Image.png");
+}
+
+
+
 #selector {
 	height: 16vh;
 	width: 240px;
@@ -726,9 +744,9 @@ body{
 <div id="choose1" style= "display: none;">
 	<div id="b1" class="b">
 		<h1>Le yassa</h1>
-		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
+		<img src="https://d2i4dsjnpaubom.cloudfront.net/restaurant_products/images/000/000/148/original/chicken_deluxe.png?1558963880" class="burger_img" height="100%">
 
-		<p>Un burger africain, suivant la recette populaire du "Poulet yassa", adapté en burger. Avec son filet de poulet, sa sauce oignon "yassa", du cheddar fondu, des cornichon, de la salade et des tomates.</p>
+		<p>Un burger africain, suivant la recette populaire du "Poulet yassa", adapté en burger. Avec son filet de poulet, sa sauce oignon "yassa", du cheddar fondu, des cornichon, de la salade, des tomates et une portion de patates sautés.</p>
 
 		<button id="com_1" onclick="more_opts(0)">Le choisir!</button>
 
@@ -740,9 +758,9 @@ body{
 
 	<div id="b2" class="b">
 		<h1>Le Mafé</h1>
-		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
+		<img src="Peanut%20Burger.png" class="burger_img" height="100%">
 
-		<p>Un autre burger d'influence africaine, avec son steak de bœuf, sa sauce arachide "Mafé", typique en Afrique, du cheddar fondu, de la salade et des tomates.</p>
+		<p>Un autre burger d'inspiration africaine, avec son steak de bœuf, sa sauce arachide "Mafé", typique en Afrique, du cheddar fondu, de la salade, des tomates et une portion de patates sautés.</p>
 
 		<button id="com_2" onclick="more_opts(1)">Le choisir!</button>
 
@@ -753,10 +771,10 @@ body{
 
 
 	<div id="b3" class="b">
-		<h1>Le Boudin Créole</h1>
-		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
+		<h1>Le Tata-Boudin Créole</h1>
+		<img src="Burger%20Boudin.png" class="burger_img" height="100%">
 
-		<p>Un burger célebrant la culture créole antillaise, au croisement entre la française, africaine et américaine. Avec son boudin créole (épicé), ses délicieux oignons rouges, ses cornichons, sa sauce au poivre, de la salade et des tomates. </p>
+		<p>Un burger célebrant la culture créole antillaise, au croisement entre la française, africaine et américaine. Avec son boudin créole (épicé), ses délicieux oignons rouges, ses cornichons, sa sauce au poivre, de la salade, des tomates et une portion de patates sautés. </p>
 
 		<button id="com_3" onclick="more_opts(2)">Le choisir!</button>
 
@@ -768,9 +786,9 @@ body{
 
 	<div id="b4" class="b">
 		<h1>Le Colibri</h1>
-		<img src="https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png" class="burger_img" height="100%">
+		<img src="https://www.mooyah.com/uploads/globals/Avocado-Ranch-Black-Bean-Burger.png" class="burger_img" height="100%">
 
-		<p>Specialité de la maison, c'est un burger d'influence martiniquaise. Au steak de bœuf, avec du gouda fondant, de l'avocat, des petits piments végétariens, ses cornichons, sa sauce au poivre, des oignons rouges, de la salade et des tomates.</p>
+		<p>Specialité de la maison, c'est un burger d'influence martiniquaise. Au steak de bœuf, avec du gouda fondant, de l'avocat, des petits piments végétariens, ses cornichons, sa sauce au poivre, des oignons rouges, de la salade, des tomates et une portion de patates sautés.</p>
 
 		<button id="com_4" onclick="more_opts(3)">Le choisir!</button>
 
@@ -825,8 +843,21 @@ body{
 				</button>
 			</div>
 
-			<div id="c2_s_jus">
+			<div id="c2_s_tip">
 				<button onclick="select_boisson(3)">
+					Ti' Punch
+				</button>
+			</div>
+
+			<div id="c2_s_mar">
+				<button onclick="select_boisson(4)">
+					Martinico<br>Mule
+				</button>
+			</div>
+
+
+			<div id="c2_s_jus">
+				<button onclick="select_boisson(5)">
 					Jus
 				</button>
 			</div>
@@ -910,7 +941,10 @@ var c3 = document.getElementById("c2_c_ap")
 var s1 = document.getElementById("c2_s_eau")
 var s2 = document.getElementById("c2_s_bie")
 var s3 = document.getElementById("c2_s_gin")
-var s4 = document.getElementById("c2_s_jus")
+var s4 = document.getElementById("c2_s_tip")
+var s5 = document.getElementById("c2_s_mar")
+var s6 = document.getElementById("c2_s_jus")
+
 var selector = document.getElementById("selector")
 
 var name_inp = document.getElementById("name_inp")
@@ -998,8 +1032,8 @@ function b_auto_scroll() {
 
 
 com_bs = [[com1, b1], [com2, b2], [com3, b3], [com4, b4]]
-b_name = ["Burger 1", "Burger 2", "Burger 3", "Burger 4"]
-b_image = ["https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png", "https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png", "https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png", "https://freepngimg.com/thumb/cheese/61288-king-whopper-hamburger-cheeseburger-veggie-burger-buffalo.png"]
+b_name = ["Le Yassa", "Le Mafé", "Tata-Boudin Créole", "Colibri"]
+b_image = ["https://d2i4dsjnpaubom.cloudfront.net/restaurant_products/images/000/000/148/original/chicken_deluxe.png?1558963880", "Peanut%20Burger.png", "Burger%20Boudin.png", "https://www.mooyah.com/uploads/globals/Avocado-Ranch-Black-Bean-Burger.png"]
 b_color = ["#a7ca83", "#d49d6c", "#75b2cf", "#e0e094"]
 b_tcolor = ["#083d09", "#6a1e1e", "#173b46", "#4c4c15"]
 
@@ -1049,7 +1083,7 @@ function cuisson(n){
 function s_auto_scroll() {
 	setTimeout(function() {
 
-		ss = [s1, s2, s3, s4]
+		ss = [s1, s2, s3, s4, s5, s6]
 
 	  closest = s1
 
@@ -1063,7 +1097,7 @@ function s_auto_scroll() {
 
 	  if (choose3.style.display != "grid"){
   		closest.scrollIntoView({behavior:"smooth", inline: "center"})
-  		choice.boisson = ["Eau", "Bière", "Ginger Beer", "Jus"][ss.indexOf(closest)]
+  		choice.boisson = ["Eau", "Bière", "Ginger Beer", "Ti' Punch", "Martinico Mule", "Jus"][ss.indexOf(closest)]
   	}
 
 	}, 200);
@@ -1072,9 +1106,9 @@ function s_auto_scroll() {
 
 function select_boisson(n){
 	console.log(n)
-	ss = [s1, s2, s3, s4]
+	ss = [s1, s2, s3, s4, s5, s6]
 	ss[n].scrollIntoView({behavior: "smooth", inline: "center"})
-	choice.boisson = ["Eau", "Bière", "Ginger Beer", "Jus"][n]
+	choice.boisson = ["Eau", "Bière", "Ginger Beer", "Ti' Punch", "Martinico Mule", "Jus"][n]
 }
 
 
@@ -1091,7 +1125,7 @@ check_fulfilled = setInterval(()=>{
 
 
 function move_to_choice3() {
-	c3_t1.innerText = "Vous avez pris un "+choice.burger+" "+choice.cuisson.toLowerCase()+" avec "+{"Eau": "de l'eau", "Bière":"de la bière", "Ginger Beer": "de la Ginger Beer", "Jus": "du jus"}[choice.boisson]
+	c3_t1.innerText = "Vous avez pris un "+choice.burger+" "+choice.cuisson.toLowerCase()+" avec "+{"Eau": "de l'eau", "Bière":"de la bière", "Ginger Beer": "de la Ginger Beer", "Jus": "du jus", "Ti' Punch": "du Ti' Punch", "Martinico Mule": "du Martinico Mule"}[choice.boisson]
 	console.log(choose3)
 	choose3.style.display = "grid"
 	choose3.scrollIntoView({behavior: "smooth"})
